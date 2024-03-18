@@ -1,0 +1,18 @@
+const express = const express = require('express');
+const route = express.Router();
+
+router.get("/data", (req, res) => {
+  const {data} = req.body;
+  const result ={
+    is_success:true,
+    user_id:"Ayush_2110991664",
+    email : "ayush16664.be21@chitkara.edu.in",
+    roll_no:"2110991664",
+    odd_numbers:data.map((x)=>x%2).filter((x)=>x==1),
+    even_numbers:data.map((x)=>x%2).filter((x)=>x==0),
+    alphabet:data.map((x)=>x.toLowerCase()).filter((x)=>x>='A' && x<='Z'),
+  }
+  res.send(result);
+  return result.status(200).json(result);
+})
+module.exports = router;
